@@ -1,0 +1,207 @@
+//Hospital mgmt sys lab
+MainActivity.xml
+======================
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/bg2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unity University"
+            android:textSize="21dp"
+            android:letterSpacing="0.04"
+            android:textColor="#ffff" />
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hospital management system"
+            android:textSize="27dp"
+            android:letterSpacing="0.04"
+            android:layout_below="@+id/t1"
+            android:textColor="#fff" />
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ambulance"
+            android:layout_alignParentRight="true" />
+
+
+
+    </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:orientation="vertical"
+    android:background="@drawable/b"
+    android:layout_gravity="center"
+    android:layout_marginTop="20dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call 911722069"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#D2E"
+        android:paddingLeft="20dp"
+        android:paddingTop="48dp"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="25dp">
+    <ImageButton
+        android:id="@+id/imgbtn1"
+        android:layout_width="100dp"
+        android:text="Call"
+        android:layout_height="100dp"
+        android:src="@drawable/police"/>
+
+
+    <ImageButton
+        android:id="@+id/imgbtn2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/helicopteredical"
+        />
+        <ImageButton
+            android:id="@+id/imgbtn3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/fireescape"
+            />
+
+    </LinearLayout>
+</LinearLayout>
+==============================================================
+//activity2.xml
+
+--------------------------------------------------
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.cyber.laoutsfinaless.activity2"
+    android:orientation="vertical"
+    android:background="@drawable/policesec">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout">
+        <TextView
+            android:id="@+id/tbk"
+            android:text="What is your emergency status"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/bks1"
+        android:text="Home"
+        android:textSize="25dp"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:background="@drawable/custom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
+
+==========================================================================
+
+//MainActivity.java 
+---------------------------
+import android.content.Intent;
+import android.graphics.Color;
+import android.hardware.camera2.params.BlackLevelPattern;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+
+
+public class MainActivity extends AppCompatActivity {
+    ImageButton imageButton1;
+    
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ImageButton imageButton1 = (ImageButton) findViewById(R.id.imgbtn1);
+
+        imageButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+            }
+        });
+    }
+
+    public void openActivity2() {
+        Intent i = new Intent(this, activity2.class);
+        startActivity(i);
+    }
+}
+
+
+==================================================
+//activity2.java 
+
+--------------------------------
+import android.annotation.SuppressLint;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+
+public class activity2 extends AppCompatActivity {
+    Button button4;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity2);
+            Button button4= (Button) findViewById(R.id.bks1);
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }}
+        );}}
